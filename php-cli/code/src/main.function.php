@@ -30,6 +30,7 @@ function parseCommand() : string {
             'read-profiles' => 'readProfilesDirectory',
             'read-profile' => 'readProfile',
             'help' => 'helpFunction',
+            'find'=> 'findFromDate',
             default => 'helpFunction'
         };
     }

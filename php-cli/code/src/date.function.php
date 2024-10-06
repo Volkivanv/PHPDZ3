@@ -11,7 +11,7 @@ function validateDate(string $date): bool {
         return false;
     }
 
-    if(isset($dateBlocks[1]) && $dateBlocks[0] > 12) {
+    if(isset($dateBlocks[1]) && $dateBlocks[1] > 12) {
         return false;
     }
 

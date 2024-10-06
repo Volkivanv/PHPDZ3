@@ -7,4 +7,4 @@
 /dataSources/
 /dataSources.local.xml
 
-/code/vendor/
+./php-cli/code/vendor/

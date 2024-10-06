@@ -21,6 +21,41 @@ function readAllFunction(array $config) : string {
     }
 }
 
+//Дописать функцию поиска по дате
+
+function findFromDate(array $config) : string {
+    $address = $config['storage']['address'];
+
+    if (file_exists($address) && is_readable($address)) {
+        $file = fopen($address, "rb");
+        
+        $contents = ''; 
+    
+        while (!feof($file)) {
+            $contents .= fread($file, 100);
+        }
+        
+        fclose($file);
+        $arrayPerson = explode("\r\n", $contents);
+        foreach ($arrayPerson as $person) {
+            $personage = explode(",", $person);
+
+            $dateArray=explode("-", str_replace(" ","", $personage[1]));
+
+            if (($dateArray[0] == date('d'))&&($dateArray[1] == date('m'))) {
+                return $person;
+            }
+        }
+
+
+        return 'не найден';
+    }
+    else {
+        return handleError("Файл не существует");
+    }
+}
+
+
 // function addFunction(string $address) : string {
 function addFunction(array $config) : string {
     $address = $config['storage']['address'];
