@@ -27,6 +27,11 @@ function addFunction(array $config) : string {
 
     $name = readline("Введите имя: ");
     $date = readline("Введите дату рождения в формате ДД-ММ-ГГГГ: ");
+
+    if (!validateDate($date)) {
+        return handleError("Дата введена некорректно!");
+    }
+
     $data = $name . ", " . $date . "\r\n";
 
     $fileHandler = fopen($address, 'a');
