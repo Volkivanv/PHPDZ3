@@ -38,19 +38,7 @@ function findFromDate(array $config) : string {
         fclose($file);
 
         return findNearBirthDay($contents, date('m'), date('d'));
-        // $arrayPerson = explode("\r\n", $contents);
-        // foreach ($arrayPerson as $person) {
-        //     $personage = explode(",", $person);
 
-        //     $dateArray=explode("-", str_replace(" ","", $personage[1]));
-
-        //     if (($dateArray[0] == date('d'))&&($dateArray[1] == date('m'))) {
-        //         return $person;
-        //     }
-        // }
-
-
-        // return 'не найден';
     }
     else {
         return handleError("Файл не существует");
@@ -79,9 +67,43 @@ function addFunction(array $config) : string {
     else {
         return handleError("Произошла ошибка записи. Данные не сохранены");
     }
-
-    fclose($fileHandler);
 }
+
+function DeleteFunction(array $config) : string {
+    $address = $config['storage']['address'];
+
+    $name = readline("Введите имя: ");
+
+    if (file_exists($address) && is_readable($address)) {
+        $file = fopen($address, "rb");
+        
+        $contents = ''; 
+    
+        while (!feof($file)) {
+            $contents .= fread($file, 100);
+        }
+        
+        fclose($file);
+
+        $contentsOut = deleteFromName($contents, $name);
+        
+        if ($contentsOut != $contents) {
+            $file = fopen($address,'w');
+            fwrite($file, $contentsOut);
+            fclose($file);
+            return 'Удален: '. $name;
+        } else {
+            return  $name. ' не найден!';
+        }
+
+    }
+    else {
+        return handleError("Файл не существует");
+    }
+}
+
+
+
 
 // function clearFunction(string $address) : string {
 function clearFunction(array $config) : string {

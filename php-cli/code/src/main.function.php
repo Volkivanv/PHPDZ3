@@ -29,8 +29,9 @@ function parseCommand() : string {
             'clear' => 'clearFunction',
             'read-profiles' => 'readProfilesDirectory',
             'read-profile' => 'readProfile',
-            'help' => 'helpFunction',
+            'delete'=> 'deleteFunction',
             'find'=> 'findFromDate',
+            'help' => 'helpFunction',
             default => 'helpFunction'
         };
     }

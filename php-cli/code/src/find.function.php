@@ -14,3 +14,21 @@ function findNearBirthDay(string $contents, string $month, string $days):string{
 
         return 'не найден';
 }
+
+
+function deleteFromName(string $contents, string $name):string{
+    $arrayPerson = explode("\r\n", $contents);
+    $foundKey = -1;
+        for($i = 0; $i < count($arrayPerson); $i++) {
+            $personage = explode(",", $arrayPerson[$i]);
+            if ($personage[0] == $name) {
+                $foundKey = $i;
+            }
+        }
+        if ($foundKey!=-1){
+            unset($arrayPerson[$foundKey]);
+            return implode("\r\n", $arrayPerson);
+        } else {
+            return $contents;
+        }
+}
