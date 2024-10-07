@@ -11,7 +11,8 @@
             "src/template.function.php",
             "src/file.function.php",
             "src/date.function.php",
-            "src/find.function.php"
+            "src/find.function.php",
+            "src/name.function.php"
         ]
     }
 }

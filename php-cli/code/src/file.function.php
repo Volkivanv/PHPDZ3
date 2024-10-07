@@ -51,11 +51,16 @@ function addFunction(array $config) : string {
     $address = $config['storage']['address'];
 
     $name = readline("Введите имя: ");
+    if (!validName(trim($name))) {
+        return handleError("Имя введено некорректно");
+    }
     $date = readline("Введите дату рождения в формате ДД-ММ-ГГГГ: ");
 
     if (!validateDate($date)) {
         return handleError("Дата введена некорректно!");
     }
+
+   
 
     $data = $name . ", " . $date . "\r\n";
 
@@ -89,7 +94,7 @@ function DeleteFunction(array $config) : string {
         
         if ($contentsOut != $contents) {
             $file = fopen($address,'w');
-            fwrite($file, $contentsOut);
+            fwrite($file, $contentsOut. "\r\n");
             fclose($file);
             return 'Удален: '. $name;
         } else {
