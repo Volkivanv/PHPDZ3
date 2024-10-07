@@ -36,19 +36,21 @@ function findFromDate(array $config) : string {
         }
         
         fclose($file);
-        $arrayPerson = explode("\r\n", $contents);
-        foreach ($arrayPerson as $person) {
-            $personage = explode(",", $person);
 
-            $dateArray=explode("-", str_replace(" ","", $personage[1]));
+        return findNearBirthDay($contents, date('m'), date('d'));
+        // $arrayPerson = explode("\r\n", $contents);
+        // foreach ($arrayPerson as $person) {
+        //     $personage = explode(",", $person);
 
-            if (($dateArray[0] == date('d'))&&($dateArray[1] == date('m'))) {
-                return $person;
-            }
-        }
+        //     $dateArray=explode("-", str_replace(" ","", $personage[1]));
+
+        //     if (($dateArray[0] == date('d'))&&($dateArray[1] == date('m'))) {
+        //         return $person;
+        //     }
+        // }
 
 
-        return 'не найден';
+        // return 'не найден';
     }
     else {
         return handleError("Файл не существует");

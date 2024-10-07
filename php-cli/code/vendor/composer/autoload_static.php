@@ -11,6 +11,7 @@ class ComposerStaticInite0da997f9cddab2ee2cdb1f5d8cf197e
         '2c30778c83e7cf1ab5d05f6fb053a212' => __DIR__ . '/../..' . '/src/template.function.php',
         '4497162affd5dbda9202a35ac3a5f40d' => __DIR__ . '/../..' . '/src/file.function.php',
         'ea21631de1595c7b0d102daf7532833b' => __DIR__ . '/../..' . '/src/date.function.php',
+        '026f0ea05b10470451eec1f060b6a05a' => __DIR__ . '/../..' . '/src/find.function.php',
     );
 
     public static $classMap = array (

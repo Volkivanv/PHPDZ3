@@ -10,4 +10,5 @@ return array(
     '2c30778c83e7cf1ab5d05f6fb053a212' => $baseDir . '/src/template.function.php',
     '4497162affd5dbda9202a35ac3a5f40d' => $baseDir . '/src/file.function.php',
     'ea21631de1595c7b0d102daf7532833b' => $baseDir . '/src/date.function.php',
+    '026f0ea05b10470451eec1f060b6a05a' => $baseDir . '/src/find.function.php',
 );
